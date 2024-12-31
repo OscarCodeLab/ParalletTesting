@@ -62,8 +62,8 @@ public class ExtentManager extends Base {
 		        FileUtils.copyFile(screenshot, new File(screenshotPath));
 		        return screenshotPath;
 		    }
-			
-			
+		    
+		  
 
 			public static void captureElementScreenshot(WebElement element) throws IOException {
 				
