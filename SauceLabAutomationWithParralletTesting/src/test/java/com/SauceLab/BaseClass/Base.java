@@ -18,6 +18,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
@@ -32,7 +33,7 @@ public class Base {
     public static Logger log = LogManager.getLogger(Base.class);
     public ExcelReader excel = new ExcelReader("C:\\Users\\hp\\git\\ParallelTest\\SauceLabAutomationWithParralletTesting\\src\\test\\resources\\LoginMaterial.xlsx");
 
-    @BeforeTest
+    @BeforeSuite
     @Parameters("browser")
     public void setUp(String browser) throws IOException {
         // Load configuration
@@ -107,8 +108,8 @@ public class Base {
     public void tearDown() {
         if (getDriver() != null) {
             getDriver().quit();
-            driver.remove();
-            wait.remove();
+            //driver.remove();
+            //wait.remove();
             log.info("Browser closed and resources cleaned up.");
         }
     }
