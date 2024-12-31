@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+<!-- Define Properties -->
+<Properties>
+    <Property name="logPattern">[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</Property>
+    <Property name="logFileName">logs/app.log</Property>
+    <Property name="logFilePattern">logs/app-%d{yyyy-MM-dd}.log</Property>
+</Properties>
+
+<!-- Appenders -->
+<Appenders>
+    <!-- Console Appender -->
+    <Console name="ConsoleAppender">
+        <PatternLayout pattern="${logPattern}"/>
+    </Console>
+
+    <!-- Rolling File Appender -->
+    <RollingFile name="RollingFileAppender" fileName="${logFileName}" filePattern="${logFilePattern}">
+        <PatternLayout pattern="${logPattern}"/>
+        <Policies>
+            <SizeBasedTriggeringPolicy size="10MB"/>
+        </Policies>
+    </RollingFile>
+</Appenders>
+
+<!-- Loggers -->
+<Loggers>
+    <!-- Your test package logger -->
+    <Logger name="com.SauceLab" level="debug" additivity="false">
+        <AppenderRef ref="ConsoleAppender"/>
+        <AppenderRef ref="RollingFileAppender"/>
+    </Logger>
+
+    <!-- External packages logger -->
+    <Logger name="org.apache.poi" level="info" additivity="false">
+        <AppenderRef ref="ConsoleAppender"/>
+        <AppenderRef ref="RollingFileAppender"/>
+    </Logger>
+
+    <!-- Root Logger -->
+    <Root level="info">
+        <AppenderRef ref="ConsoleAppender"/>
+        <AppenderRef ref="RollingFileAppender"/>
+    </Root>
+</Loggers>
+
+</Configuration>
