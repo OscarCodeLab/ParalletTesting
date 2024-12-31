@@ -17,7 +17,7 @@
 		<reportName>
 			Saucedemo Report
 		<![CDATA[
-                <img src='C:\Users\hp\eclipse-workspace\SauceLabAutomationWithParralletTesting\logo\rsz_login_bot_graphic.png'/>
+                <img src='http://localhost:8080/view/Rough%20Work/job/Parallel%20Testing/ws/SauceLabAutomationWithParralletTesting/logo/rsz_login_bot_graphic.png'/>
             ]]>
         </reportName>
 
