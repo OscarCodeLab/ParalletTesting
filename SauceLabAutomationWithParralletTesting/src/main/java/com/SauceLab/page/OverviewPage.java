@@ -35,8 +35,6 @@ public class OverviewPage extends BasePage {
     @FindBy(xpath = "//div[@class='subheader']")
     private WebElement subheaderText;
 
-    @FindBy(xpath = "//img[@class='pony_express']")
-    private WebElement ponyExpressImg;
 
     public InventoryPage clickCancelBtn() {
         logger.info("Attempting to click on the Cancel button.");
@@ -50,18 +48,28 @@ public class OverviewPage extends BasePage {
         }
     }
 
-    public void clickFinishBtn() {
-    	logger.info("Attempting to click on the Checkout button.");
-		try {
-			wait.until(ExpectedConditions.elementToBeClickable(finishBtn));
-			actions.moveToElement(finishBtn).click().build().perform();
-			logger.info("Checkout button clicked successfully.");
-		} catch (Exception e) {
-			logger.error("Error occurred while clicking the Checkout button: {}", e.getMessage());
-			throw e;
-		}
-		
-	}
+    public ClosePage clickFinishBtn() {
+        logger.info("Attempting to click on the Checkout button.");
+        try {
+            // Ensure the element is clickable
+            wait.until(ExpectedConditions.elementToBeClickable(finishBtn));
+            
+            // Perform the click action using Actions class
+            actions.moveToElement(finishBtn).click().build().perform();
+            
+            logger.info("Checkout button clicked successfully.");
+        } catch (Exception e) {
+            // Log error with additional context
+            logger.error("Error occurred while clicking the Finish button: {}", e.getMessage(), e);
+            
+            // Optionally, wrap and throw a custom exception for clarity
+            throw new RuntimeException("Failed to click on the Finish button.", e);
+        }
+        
+        // Return the next page object
+        return new ClosePage(driver);
+    }
+
 
     public String isSubheaderTextDisplayed() {
         logger.info("Attempting to retrieve subheader text.");
@@ -75,16 +83,5 @@ public class OverviewPage extends BasePage {
         }
     }
 
-    public boolean isPonyExpressImgDisplayed() {
-        logger.info("Checking if Pony Express image is displayed.");
-        try {
-            wait.until(ExpectedConditions.visibilityOf(ponyExpressImg));
-            boolean isDisplayed = ponyExpressImg.isDisplayed();
-            logger.info("Pony Express image visibility status: {}", isDisplayed);
-            return isDisplayed;
-        } catch (Exception e) {
-            logger.error("Error occurred while checking Pony Express image visibility: {}", e.getMessage());
-            return false;
-        }
-    }
+    
 }

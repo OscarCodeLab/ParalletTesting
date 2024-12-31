@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import com.SauceLab.BaseClass.Base;
 import com.SauceLab.Utilities.DataProviders;
 import com.SauceLab.page.CartPage;
+import com.SauceLab.page.ClosePage;
 import com.SauceLab.page.InformationPage;
 import com.SauceLab.page.InventoryPage;
 import com.SauceLab.page.LoginPage;
@@ -22,6 +23,7 @@ public class LoginTest extends Base {
     private CartPage cart;
     private InformationPage infor;
     private OverviewPage over;
+    private ClosePage close;
 
     @Test(priority = 1)
     public void verifyImage() {
@@ -72,12 +74,15 @@ public class LoginTest extends Base {
 
     @Test(priority = 6)
     public void overviewPageTest() {
+    	close = new ClosePage(getDriver());
         String actual = over.isSubheaderTextDisplayed();
         String expected = "Checkout: Overview";
         Assert.assertEquals(actual, expected);
 
-        over.clickFinishBtn();
-        boolean imageVisible = over.isPonyExpressImgDisplayed();
+       close =  over.clickFinishBtn();
+        boolean imageVisible = close.isPonyExpressImgDisplayed();
         Assert.assertTrue(imageVisible, "Pony Express image is not displayed!");
     }
+    
+    
 }
