@@ -30,7 +30,7 @@ public class Base {
     public ThreadLocal<WebDriverWait> wait = new ThreadLocal<>();
     public Properties prop;
     public static Logger log = LogManager.getLogger(Base.class);
-    public ExcelReader excel = new ExcelReader("C:\\Users\\hp\\eclipse-workspace\\SauceLabAutomationWithParralletTesting\\src\\test\\resources\\LoginMaterial.xlsx");
+    public ExcelReader excel = new ExcelReader("C:\\Users\\hp\\git\\ParallelTest\\SauceLabAutomationWithParralletTesting\\src\\test\\resources\\LoginMaterial.xlsx");
 
     @BeforeTest
     @Parameters("browser")
