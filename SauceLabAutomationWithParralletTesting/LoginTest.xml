@@ -8,21 +8,22 @@
     <test name="Chrome Test">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.SauceLab.TestBase.End2EndTesting"/>
+            <class name="com.SauceLab.TestBase.LoginTest"/>
         </classes>
     </test>
 
     <test name="Firefox Test">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="com.SauceLab.TestBase.End2EndTesting"/>
+            <class name="com.SauceLab.TestBase.LoginTest"/>
         </classes>
     </test>
 
     <test name="Edge Test">
         <parameter name="browser" value="edge"/>
         <classes>
-            <class name="com.SauceLab.TestBase.End2EndTesting"/>
+            <class name="com.SauceLab.TestBase.LoginTest"/>
         </classes>
     </test>
 </suite>
+

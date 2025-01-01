@@ -105,8 +105,11 @@
 				<version>3.2.5</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>${xmlFiles}</suiteXmlFile>
+					<suiteXmlFile>${xmlFiles}</suiteXmlFile>
 					</suiteXmlFiles>
+					<systemPropertyVariables>
+						<appURL>${url}</appURL>
+					</systemPropertyVariables>
 					<parallel>tests</parallel>
 					<threadCount>3</threadCount>
 				</configuration>
