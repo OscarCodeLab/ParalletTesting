@@ -19,7 +19,7 @@ public class LoginTest extends Base{
     }
 	
 	 @Test(priority = 2, dataProvider = "dp", dataProviderClass = DataProviders.class)
-	    public void sauceLoginTest(String username, String password) {
+	    public void sauceLoginsTest(String username, String password) {
 	        login = new LoginPage(getDriver());
 	        inventory = new InventoryPage(getDriver());
 
