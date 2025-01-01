@@ -16,7 +16,7 @@ import com.SauceLab.page.OverviewPage;
  * Author: Kolawole Opeyemi Oscar
  * Date: Dec 26, 2024
  */
-public class LoginTest extends Base {
+public class End2EndTesting extends Base {
 
     private LoginPage login;
     private InventoryPage inventory;
