@@ -11,17 +11,13 @@ public class LoginTest extends Base{
  private LoginPage login;
  private InventoryPage inventory;
 	
-	@Test(priority = 1)
-    public void verifyImage() {
-        login = new LoginPage(getDriver());
-        boolean isLogoDisplayed = login.verifyLogo();
-        Assert.assertTrue(isLogoDisplayed, "Logo is not displayed!");
-    }
-	
-	 @Test(priority = 2, dataProvider = "data", dataProviderClass = DataProviders.class)
+	 @Test(dataProvider = "data", dataProviderClass = DataProviders.class)
 	    public void sauceLoginsTest(String username, String password) {
 	        login = new LoginPage(getDriver());
 	        inventory = new InventoryPage(getDriver());
+	        
+	        boolean isLogoDisplayed = login.verifyLogo();
+	        Assert.assertTrue(isLogoDisplayed, "Logo is not displayed!");
 
 	        inventory = login.clickLogin(username, password);
 	        String actual = inventory.getText();
