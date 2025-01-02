@@ -18,7 +18,7 @@ public class LoginTest extends Base{
         Assert.assertTrue(isLogoDisplayed, "Logo is not displayed!");
     }
 	
-	 @Test(priority = 2, dataProvider = "dp", dataProviderClass = DataProviders.class)
+	 @Test(priority = 2, dataProvider = "data", dataProviderClass = DataProviders.class)
 	    public void sauceLoginsTest(String username, String password) {
 	        login = new LoginPage(getDriver());
 	        inventory = new InventoryPage(getDriver());
