@@ -17,8 +17,8 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
 import com.SauceLab.Utilities.ExcelReader;
@@ -32,7 +32,7 @@ public class Base {
     public static Logger log = LogManager.getLogger(Base.class);
     public ExcelReader excel = new ExcelReader("C:\\Users\\hp\\git\\ParallelTest\\SauceLabAutomationWithParralletTesting\\src\\test\\resources\\LoginMaterial.xlsx");
 
-    @BeforeTest
+    @BeforeMethod
     @Parameters("browser")
     public void setUp(String browser) throws IOException {
         // Load configuration
@@ -103,7 +103,7 @@ public class Base {
         return driver.get();
     }
 
-    @AfterTest
+    @AfterMethod
     public void tearDown() {
         if (getDriver() != null) {
             getDriver().quit();
