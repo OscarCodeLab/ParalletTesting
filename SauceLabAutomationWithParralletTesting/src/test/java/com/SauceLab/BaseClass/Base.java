@@ -105,11 +105,10 @@ public class Base {
 
     @AfterMethod
     public void tearDown() {
-        if (getDriver() != null) {
+        
             getDriver().quit();
            // driver.remove();
             //wait.remove();
             log.info("Browser closed and resources cleaned up.");
         }
-    }
 }
