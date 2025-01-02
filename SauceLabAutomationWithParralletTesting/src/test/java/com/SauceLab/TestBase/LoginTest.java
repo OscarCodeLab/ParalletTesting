@@ -11,7 +11,7 @@ public class LoginTest extends Base{
  private LoginPage login;
  private InventoryPage inventory;
 	
-	 @Test(dataProvider = "data", dataProviderClass = DataProviders.class)
+	 @Test(dataProvider = "dp", dataProviderClass = DataProviders.class)
 	    public void sauceLoginsTest(String username, String password) {
 	        login = new LoginPage(getDriver());
 	        inventory = new InventoryPage(getDriver());
