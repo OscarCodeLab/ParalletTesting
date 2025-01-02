@@ -110,7 +110,7 @@
 					<systemPropertyVariables>
 						<appURL>${url}</appURL>
 					</systemPropertyVariables>
-					<parallel>methods</parallel>
+					<parallel>tests</parallel>
 					<threadCount>3</threadCount>
 				</configuration>
 			</plugin>
